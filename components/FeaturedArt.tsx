@@ -29,19 +29,19 @@ const artPieces = [
 
 export default function FeaturedArt() {
   return (
-    <section className="py-20 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial from-gray-900 to-black z-0" />
-      <h2 className="text-4xl font-bold text-center mb-12 relative z-10">
+    <section className="relative overflow-hidden px-4 py-20">
+      <div className="bg-gradient-radial absolute inset-0 z-0 from-gray-900 to-black" />
+      <h2 className="relative z-10 mb-12 text-center text-4xl font-bold">
         Featured Art Pieces
       </h2>
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="relative z-10 mx-auto max-w-6xl">
         {artPieces.map((piece, index) => (
           <motion.div
             key={piece.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className={`flex flex-col md:flex-row items-center mb-20 ${
+            className={`mb-20 flex flex-col items-center md:flex-row ${
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
@@ -50,7 +50,7 @@ export default function FeaturedArt() {
                 index % 2 === 0 ? "md:pr-8" : "md:pl-8"
               }`}
             >
-              <div className="aspect-square relative overflow-hidden rounded-lg shadow-lg">
+              <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
                 <Image
                   src={piece.image}
                   alt={piece.name}
@@ -61,11 +61,11 @@ export default function FeaturedArt() {
               </div>
             </div>
             <div
-              className={`w-full md:w-1/2 mt-8 md:mt-0 ${
+              className={`mt-8 w-full md:mt-0 md:w-1/2 ${
                 index % 2 === 0 ? "md:pl-8" : "md:pr-8"
               }`}
             >
-              <h3 className="text-3xl font-semibold mb-4">{piece.name}</h3>
+              <h3 className="mb-4 text-3xl font-semibold">{piece.name}</h3>
               <p className="text-xl text-gray-300">{piece.description}</p>
             </div>
           </motion.div>

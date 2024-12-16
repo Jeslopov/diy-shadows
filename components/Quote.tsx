@@ -24,7 +24,7 @@ const Quote: React.FC<QuoteProps> = ({ text, x, y, isVisible }) => {
           }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.5 }}
-          className="absolute pointer-events-auto cursor-default"
+          className="pointer-events-auto absolute cursor-default"
           style={{
             left: `${x}%`,
             top: `${y}%`,
@@ -34,7 +34,7 @@ const Quote: React.FC<QuoteProps> = ({ text, x, y, isVisible }) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="text-lg font-medium max-w-xs md:max-w-md break-words">
+          <div className="max-w-xs break-words text-lg font-medium md:max-w-md">
             {text}
           </div>
         </motion.div>

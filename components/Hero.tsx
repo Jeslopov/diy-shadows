@@ -139,12 +139,12 @@ export default function Hero() {
     <>
       <div
         ref={heroRef}
-        className="h-screen w-full relative overflow-hidden bg-gray-900 flex flex-col"
+        className="relative flex h-screen w-full flex-col overflow-hidden bg-gray-900"
       >
         {/* Light Effect Layer */}
         {!isMobile.current && (
           <div
-            className="absolute inset-0 pointer-events-none transition-all duration-300"
+            className="pointer-events-none absolute inset-0 transition-all duration-300"
             style={{
               background: `radial-gradient(circle ${lightRadius}px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.2), transparent 80%)`,
               opacity: mousePosition.x > 0 ? 1 : 0,
@@ -181,12 +181,12 @@ export default function Hero() {
         })}
 
         {/* Main Content Layer */}
-        <div className="flex-grow flex flex-col items-center justify-center z-10 px-4">
+        <div className="z-10 flex grow flex-col items-center justify-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-5xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 bg-[200%_200%] animate-gradientMove"
+            className="animate-gradientMove bg-gradient-to-r from-white to-gray-500 bg-clip-text bg-[200%_200%] text-5xl font-bold text-transparent md:text-8xl"
           >
             <div>
               <div>DYI</div>
@@ -201,7 +201,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="text-xl md:text-2xl text-white mb-4 text-center max-w-sm md:max-w-2xl"
+            className="mb-4 max-w-sm text-center text-xl text-white md:max-w-2xl md:text-2xl"
           >
             Create Your Own Shadow Masterpiece
           </motion.p>
@@ -224,7 +224,7 @@ export default function Hero() {
               })(),
             }}
             transition={{ duration: 0.5 }}
-            className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg shadow-lg cursor-pointer"
+            className="cursor-pointer rounded-lg bg-gray-800 px-6 py-3 font-semibold text-white shadow-lg"
             onClick={() => {
               window.location.href = "/shop"
             }}
@@ -236,11 +236,11 @@ export default function Hero() {
       </div>
 
       {/* Featured Art Section */}
-      <div className="w-full bg-gray-900 bg-opacity-80 py-12">
-        <h2 className="text-3xl text-center text-white mb-8">Featured Art</h2>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+      <div className="w-full bg-gray-900/80 py-12">
+        <h2 className="mb-8 text-center text-3xl text-white">Featured Art</h2>
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 md:grid-cols-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="relative w-full h-64">
+            <div key={i} className="relative h-64 w-full">
               <Image
                 src={
                   "https://d16kd6gzalkogb.cloudfront.net/magazine_images/Kumi-Yamashita-Profile-19941.jpg"
